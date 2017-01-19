@@ -6,5 +6,15 @@
 # We make no guarantees that this code is fit for any purpose.
 # Visit http://www.pragmaticprogrammer.com/titles/rails5 for more book information.
 #---
-module ApplicationHelper
+class CreateProducts < ActiveRecord::Migration[5.0]
+  def change
+    create_table :products do |t|
+      t.string :title
+      t.text :description
+      t.string :image_url
+      t.decimal :price, precision: 8, scale: 2
+
+      t.timestamps
+    end
+  end
 end
